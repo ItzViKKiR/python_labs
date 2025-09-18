@@ -1,5 +1,5 @@
 vxod = input('in: ')
-slovo = ''
+word = ''
 index1 = 0 
 index2 = 0
 
@@ -17,5 +17,5 @@ for i in range(len(vxod)):
         continue
 shag = index2 - index1
 for i in range(index1,len(vxod),shag):
-    slovo+=vxod[i]
-print(f'out: {slovo}')
+    word+=vxod[i]
+print(f'out: {word}')

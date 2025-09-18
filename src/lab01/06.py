@@ -1,9 +1,9 @@
-kolich_ychast = int(input('in_1: '))
+members = int(input('in_1: '))
 ochno = 0
 zaochno = 0
-for i in range(kolich_ychast):
-    ychastnik = input(f'in_{i+2}: ')
-    if 'True' in ychastnik:
+for i in range(members):
+    member = input(f'in_{i+2}: ')
+    if 'True' in member:
         ochno +=1
     else:
         zaochno+=1
