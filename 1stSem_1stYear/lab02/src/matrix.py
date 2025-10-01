@@ -1,13 +1,13 @@
-def transpose(mat: list[list[float | int]]) -> list[list | ValueError]:
+def transpose(mat: list[list[float | int]]) -> list[list]:
     if len(mat)==0:
         return []
     rowlenght=len(mat[0])
     for row in mat:
         if len(row)!=rowlenght:
             return ValueError
-    return [[row[i] for row in mat] for i in range(rowlenght)]
+    return [[row[index] for row in mat] for index in range(rowlenght)]
 
-def row_sums(mat: list[list[float | int]]) -> list[float] | ValueError:
+def row_sums(mat: list[list[float | int]]) -> list[float]:
     if len(mat)==0:
         return []
     rowlenght=len(mat[0])

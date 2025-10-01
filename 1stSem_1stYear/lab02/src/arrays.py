@@ -1,4 +1,4 @@
-def min_max(nums: list[float | int]) -> tuple[float | int, float | int, ValueError]:
+def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
     if len(nums)==0:
         return ValueError
     else:
@@ -7,7 +7,7 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int, ValueErr
 def unique_sorted(nums: list[float | int]) -> list[float | int]:
     return sorted(set(nums))
 
-def flatten(mat: list[list | tuple]) -> list | type[TypeError]:
+def flatten(mat: list[list | tuple]) -> list:
     result=[]
     for object in mat:
         if type(object) is not list or not tuple:

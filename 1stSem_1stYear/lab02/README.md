@@ -1,7 +1,7 @@
-# Лабораторная работа 1
+# Лабораторная работа 2
 ### Задание 1
 ```python
-def min_max(nums: list[float | int]) -> tuple[float | int, float | int, ValueError]:
+def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
     if len(nums)==0:
         return ValueError
     else:
@@ -10,7 +10,7 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int, ValueErr
 def unique_sorted(nums: list[float | int]) -> list[float | int]:
     return sorted(set(nums))
 
-def flatten(mat: list[list | tuple]) -> list | type[TypeError]:
+def flatten(mat: list[list | tuple]) -> list:
     result=[]
     for object in mat:
         if type(object) is not list or not tuple:
@@ -22,17 +22,18 @@ def flatten(mat: list[list | tuple]) -> list | type[TypeError]:
 ```
 ![arrays code](/1stSem_1stYear/lab02/images/arrays.png)
 
+### Задание 2
 ``` python
-def transpose(mat: list[list[float | int]]) -> list[list | ValueError]:
+def transpose(mat: list[list[float | int]]) -> list[list]:
     if len(mat)==0:
         return []
     rowlenght=len(mat[0])
     for row in mat:
         if len(row)!=rowlenght:
             return ValueError
-    return [[row[i] for row in mat] for i in range(rowlenght)]
+    return [[row[index] for row in mat] for index in range(rowlenght)]
 
-def row_sums(mat: list[list[float | int]]) -> list[float] | ValueError:
+def row_sums(mat: list[list[float | int]]) -> list[float]:
     if len(mat)==0:
         return []
     rowlenght=len(mat[0])
@@ -51,6 +52,23 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
     newmat=transpose(mat)
     return [sum(row) for row in newmat]
 ```
-![arrays code](/1stSem_1stYear/lab02/images/matrix.png)
+![matrix code](/1stSem_1stYear/lab02/images/matrix.png)
 
-
+### Задание 3
+```python
+def format_record(rec: tuple[str, str, float]) -> str:
+    if type(rec[2]) is not int and type(rec[2]) is not float:
+        return TypeError
+    if len(rec[1])==0:
+        return ValueError
+    name_parts=rec[0].strip().split()
+    if len(name_parts)==3:
+        n1, n2, n3 = name_parts
+        return f"{n1.capitalize()} {n2[0].upper()}.{n3[0].upper()}., гр. {rec[1].upper()}, GPA {rec[2]:.2f}"
+    elif len(name_parts)==2:
+        n1, n2 = name_parts
+        return f"{n1.capitalize()} {n2[0].upper()}., гр. {rec[1].upper()}, GPA {rec[2]:.2f}"
+    else:
+        return ValueError
+```
+![tuples code](/1stSem_1stYear/lab02/images/tuples.png)
