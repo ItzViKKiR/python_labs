@@ -20,7 +20,7 @@ def flatten(mat: list[list | tuple]) -> list | type[TypeError]:
                 result.append(item)
     return result
 ```
-![arrays code](/images/lab02/arrays.png)
+![arrays code](/1stSem_1stYear/lab02/images/arrays.png)
 
 ``` python
 def transpose(mat: list[list[float | int]]) -> list[list | ValueError]:
@@ -51,6 +51,6 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
     newmat=transpose(mat)
     return [sum(row) for row in newmat]
 ```
-![arrays code](/images/lab02/matrix.png)
+![arrays code](/1stSem_1stYear/lab02/images/matrix.png)
 
 

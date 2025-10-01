@@ -6,7 +6,7 @@ name=str(input('Имя: '))
 age=int(input('Возраст: '))
 print(f'Привет, {name}! Через год тебе будет {age +1}.')
 ```
-![Результат 1го кода](/images/lab01/lab1_ex1.png)
+![Результат 1го кода](/1stSem_1stYear/lab01/images/lab1_ex1.png)
 
 ### Задание 2
 ``` python
@@ -18,7 +18,7 @@ sum=a+b
 avg=(a+b)/2
 print('Сумма =',round(sum,2),'; Среднее арифметическое =',round(avg,2))
 ```
-![Результат 2го кода](/images/lab01/lab1_ex2.png)
+![Результат 2го кода](/1stSem_1stYear/lab01/images/lab1_ex2.png)
 
 ### Задание 3
 ``` python
@@ -32,7 +32,7 @@ print(f'База после скидки: {'%.2f' % base} ₽')
 print(f'НДС: {'%.2f' % vat_amount} ₽')
 print(f'Итого к оплате: {'%.2f' % total} ₽')
 ```
-![Результат 3го кода](/images/lab01/lab1_ex3.png)
+![Результат 3го кода](/1stSem_1stYear/lab01/images/lab1_ex3.png)
 
 ### Задание 4
 ``` python
@@ -43,7 +43,7 @@ hours=m//60
 minutes=m%60
 print(f'Результат перевода:{m//60}:{m%60:02d}')
 ```
-![Результат 4 кода](/images/lab01/lab1_ex4.png)
+![Результат 4 кода](/1stSem_1stYear/lab01/images/lab1_ex4.png)
 
 ### Задание 5
 ``` python
@@ -56,7 +56,7 @@ print('Инициалы: ','.'.join(initials))
 print('Длина (символов): ',len(' '.join(newname)))
 ```
 
-![Результат 5 кода](/images/lab01/lab1_ex5.png)
+![Результат 5 кода](/1stSem_1stYear/lab01/images/lab1_ex5.png)
 
 ## Задания со звездочкой
 ### Задание 6
@@ -73,7 +73,7 @@ for i in range(members):
 print(f'out: {ochno} {zaochno}')
 ```
 
-![Результат 6 кода](/images/lab01/lab1_ex6.png)
+![Результат 6 кода](/1stSem_1stYear/lab01/images/lab1_ex6.png)
 
 ### Задание 7
 ``` python
@@ -99,4 +99,4 @@ for i in range(index1,len(vxod),shag):
     word+=vxod[i]
 print(f'out: {word}')
 ```
-![Результат 7 кода](/images/lab01/lab1_ex7.png)
+![Результат 7 кода](/1stSem_1stYear/lab01/images/lab1_ex7.png)
