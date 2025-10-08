@@ -1,8 +1,8 @@
 def format_record(rec: tuple[str, str, float]) -> str:
     if type(rec[2]) is not int and type(rec[2]) is not float:
-        return TypeError
+        raise TypeError
     if len(rec[1])==0:
-        return ValueError
+        raise ValueError
     name_parts=rec[0].strip().split()
     if len(name_parts)==3:
         n1, n2, n3 = name_parts
@@ -11,4 +11,4 @@ def format_record(rec: tuple[str, str, float]) -> str:
         n1, n2 = name_parts
         return f"{n1.capitalize()} {n2[0].upper()}., гр. {rec[1].upper()}, GPA {rec[2]:.2f}"
     else:
-        return ValueError
+        raise ValueError
