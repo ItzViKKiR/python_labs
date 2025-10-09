@@ -3,7 +3,7 @@
 ```python
 def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
     if len(nums)==0:
-        raise ValueError
+        raise ValueError('Пустая матрица')
     else:
         return min(nums), max(nums)
 
@@ -14,7 +14,7 @@ def flatten(mat: list[list | tuple]) -> list:
     result=[]
     for object in mat:
         if type(object) is not list or not tuple:
-            raise TypeError
+            raise TypeError("Элемент не является списком/кортежем")
         else:
             for item in object:
                 result.append(item)
@@ -30,7 +30,7 @@ def transpose(mat: list[list[float | int]]) -> list[list]:
     rowlenght=len(mat[0])
     for row in mat:
         if len(row)!=rowlenght:
-            raise ValueError
+            raise ValueError('Рваная матрица')
     return [[row[index] for row in mat] for index in range(rowlenght)]
 
 def row_sums(mat: list[list[float | int]]) -> list[float]:
@@ -39,7 +39,7 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
     rowlenght=len(mat[0])
     for row in mat:
         if len(row)!=rowlenght:
-            raise ValueError
+            raise ValueError('Рваная матрица')
     return [sum(row) for row in mat]
 
 def col_sums(mat: list[list[float | int]]) -> list[float]:
@@ -48,7 +48,7 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
     rowlenght=len(mat[0])
     for row in mat:
         if len(row)!=rowlenght:
-            raise ValueError
+            raise ValueError('Рваная матрица')
     newmat=transpose(mat)
     return [sum(row) for row in newmat]
 ```
@@ -58,17 +58,17 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
 ```python
 def format_record(rec: tuple[str, str, float]) -> str:
     if type(rec[2]) is not int and type(rec[2]) is not float:
-        raise TypeError
+        raise TypeError('Введите правильный балл GPA')
     if len(rec[1])==0:
-        raise ValueError
+        raise ValueError('Введите правильную группу')
     name_parts=rec[0].strip().split()
     if len(name_parts)==3:
-        n1, n2, n3 = name_parts
-        return f"{n1.capitalize()} {n2[0].upper()}.{n3[0].upper()}., гр. {rec[1].upper()}, GPA {rec[2]:.2f}"
+        surname, name, middle_name = name_parts
+        return f"{surname.capitalize()} {name[0].upper()}.{middle_name[0].upper()}., гр. {rec[1].upper()}, GPA {rec[2]:.2f}"
     elif len(name_parts)==2:
-        n1, n2 = name_parts
-        return f"{n1.capitalize()} {n2[0].upper()}., гр. {rec[1].upper()}, GPA {rec[2]:.2f}"
+        surname, name = name_parts
+        return f"{surname.capitalize()} {name[0].upper()}., гр. {rec[1].upper()}, GPA {rec[2]:.2f}"
     else:
-        raise ValueError
+        raise ValueError('Введите правильное ФИ(О)')
 ```
 ![tuples code](/1stSem_1stYear/lab02/images/tuples.png)

@@ -1,14 +1,14 @@
 def format_record(rec: tuple[str, str, float]) -> str:
     if type(rec[2]) is not int and type(rec[2]) is not float:
-        raise TypeError
+        raise TypeError('Введите правильный балл GPA')
     if len(rec[1])==0:
-        raise ValueError
+        raise ValueError('Введите правильную группу')
     name_parts=rec[0].strip().split()
     if len(name_parts)==3:
-        n1, n2, n3 = name_parts
-        return f"{n1.capitalize()} {n2[0].upper()}.{n3[0].upper()}., гр. {rec[1].upper()}, GPA {rec[2]:.2f}"
+        surname, name, middle_name = name_parts
+        return f"{surname.capitalize()} {name[0].upper()}.{middle_name[0].upper()}., гр. {rec[1].upper()}, GPA {rec[2]:.2f}"
     elif len(name_parts)==2:
-        n1, n2 = name_parts
-        return f"{n1.capitalize()} {n2[0].upper()}., гр. {rec[1].upper()}, GPA {rec[2]:.2f}"
+        surname, name = name_parts
+        return f"{surname.capitalize()} {name[0].upper()}., гр. {rec[1].upper()}, GPA {rec[2]:.2f}"
     else:
-        raise ValueError
+        raise ValueError('Введите правильное ФИ(О)')
