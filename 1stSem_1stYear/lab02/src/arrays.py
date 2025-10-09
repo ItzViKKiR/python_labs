@@ -10,8 +10,9 @@ def unique_sorted(nums: list[float | int]) -> list[float | int]:
 def flatten(mat: list[list | tuple]) -> list:
     result=[]
     for object in mat:
-        if type(object) is not list or not tuple:
-            raise TypeError("Элемент не является списком/кортежем")
+        for item in object:
+            if type(item) is not int or not float:
+                raise TypeError("Элемент не является списком/кортежем")
         else:
             for item in object:
                 result.append(item)
