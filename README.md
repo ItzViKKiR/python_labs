@@ -4,3 +4,5 @@
 Лабораторная работа №1 [LAB01](/1stSem_1stYear/lab01)
 
 Лабораторная работа №2 [LAB02](/1stSem_1stYear/lab02)
+
+Лабораторная работа №3 [LAB03](/1stSem_1stYear/lab03)
