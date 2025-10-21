@@ -19,8 +19,9 @@ def read_text(path: str | Path, encoding: str = "utf-8") -> str:
     содержимому файла
     '''
     p = Path(path)
-    if not p.exists():
-        raise FileNotFoundError(f"Файл не найден")
+    print(p)
+    # if not p.exists():
+    #     raise FileNotFoundError(f"Файл не найден")
     file_size = p.stat().st_size
     if file_size == 0:
         return ""
@@ -56,7 +57,3 @@ def write_csv(rows: list[tuple | list], path: str | Path, header: tuple[str, ...
             w.writerow(header)
         for r in rows_list:
             w.writerow(r)
-
-txt = read_text("1stSem_1stYear/data/lab04/input.txt")
-write_csv([("word","count"),("test",3)], "1stSem_1stYear/data/check.csv")
-print(txt)
