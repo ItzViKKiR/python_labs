@@ -1,7 +1,10 @@
 from text import *
+from sys import *
+stdin.reconfigure(encoding='utf-8')
+stdout.reconfigure(encoding='utf-8')
 
 def main():
-    text = input()
+    text = stdin.read().strip()
     normalized = normalize(text)
     words = tokenize(normalized)
     freq = count_freq(words)
