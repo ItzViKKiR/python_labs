@@ -33,7 +33,7 @@ def read_text(path: str | Path, encoding: str = "utf-8") -> str:
         raise UnicodeDecodeError(f"Ошибка кодировки: {e}")
 
 
-def write_csv(rows: list[tuple | list], path: str | Path, header: tuple[str, ...] | None = None) -> None:
+def write_csv(rows: Iterable[Sequence], path: str | Path,header: tuple[str, ...] | None = None) -> None:
     """
     Создает/перезаписывает CSV файл с разделителем-запятой.
     
