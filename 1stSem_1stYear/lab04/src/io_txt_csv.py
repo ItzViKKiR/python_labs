@@ -20,8 +20,8 @@ def read_text(path: str | Path, encoding: str = "utf-8") -> str:
     '''
     p = Path(path)
     print(p)
-    # if not p.exists():
-    #     raise FileNotFoundError(f"Файл не найден")
+    if not p.exists():
+        raise FileNotFoundError(f"Файл не найден")
     file_size = p.stat().st_size
     if file_size == 0:
         return ""

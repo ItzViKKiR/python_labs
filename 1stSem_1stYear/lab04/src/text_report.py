@@ -8,8 +8,7 @@ def main():
         print("Укажите путь к входному файлу")
         sys.exit(1)
     input_file = sys.argv[1]
-    print(input_file)
-    output_file = "1stSem_1stYear/data/lab04/report.csv"
+    output_file = "report.csv"
     encoding = "utf-8" 
     
     try:
