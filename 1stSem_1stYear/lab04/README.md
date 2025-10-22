@@ -115,3 +115,4 @@ if __name__ == '__main__':
 #### При пустом файле:
 ![При пустом файле](/1stSem_1stYear/lab04/images/test%202.png)
 #### С кодировкой cp1251:
+![Другая кодировка](/1stSem_1stYear/lab04/images/test3.png)
