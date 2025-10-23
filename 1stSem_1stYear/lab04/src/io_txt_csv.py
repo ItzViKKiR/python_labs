@@ -52,8 +52,8 @@ def write_csv(rows: Iterable[Sequence], path: str | Path, header: tuple[str, ...
                 raise ValueError(f"Все строки должны иметь одинаковое количество элементов")
     
     with p.open("w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
+        writer = csv.writer(f)
         if header is not None:
-            w.writerow(header)
-        for r in rows_list:
-            w.writerow(r)
+            writer.writerow(header)
+        for row in rows_list:
+            writer.writerow(row)
