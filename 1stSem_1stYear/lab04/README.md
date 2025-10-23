@@ -22,6 +22,7 @@ def read_text(path: str | Path, encoding: str = "utf-8") -> str:
     содержимому файла
     '''
     p = Path(path)
+    print(p)
     if not p.exists():
         raise FileNotFoundError(f"Файл не найден")
     file_size = p.stat().st_size
@@ -33,7 +34,7 @@ def read_text(path: str | Path, encoding: str = "utf-8") -> str:
         raise UnicodeDecodeError(f"Ошибка кодировки: {e}")
 
 
-def write_csv(rows: Iterable[Sequence], path: str | Path,header: tuple[str, ...] | None = None) -> None:
+def write_csv(rows: Iterable[Sequence], path: str | Path, header: tuple[str, ...] | None = None) -> None:
     """
     Создает/перезаписывает CSV файл с разделителем-запятой.
     
@@ -51,15 +52,14 @@ def write_csv(rows: Iterable[Sequence], path: str | Path,header: tuple[str, ...]
         row_length = len(rows_list[0])
         for row in rows_list:
             if len(row) != row_length:
-                raise ValueError(f"Все строки должны иметь одинаковое
-                 количество элементов")
+                raise ValueError(f"Все строки должны иметь одинаковое количество элементов")
     
     with p.open("w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
+        writer = csv.writer(f)
         if header is not None:
-            w.writerow(header)
-        for r in rows_list:
-            w.writerow(r)
+            writer.writerow(header)
+        for row in rows_list:
+            writer.writerow(row)
 ```
 ![Тест-кейсы задания А](/1stSem_1stYear/lab04/images/taskA.png)
 
