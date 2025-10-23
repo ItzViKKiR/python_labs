@@ -8,8 +8,10 @@ def main():
         print("Укажите путь к входному файлу")
         sys.exit(1)
     input_file = sys.argv[1]
-    output_file = "report.csv"
+    output_file = "../../data/lab04/report.csv"
     encoding = "utf-8" 
+    if not output_file.lower().endswith(".csv"):
+        raise ValueError(f"Неверный формат выходного файла: {output_file}. Ожидается .csv")
     
     try:
         text = read_text(input_file)
