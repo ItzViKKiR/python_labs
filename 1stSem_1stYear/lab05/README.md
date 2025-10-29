@@ -68,6 +68,7 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
 ```
 ### Сценарии:
 Успешная конвертация
+
 ![json to csv](/1stSem_1stYear/lab05/images/suscontocsv.png)
 ![csv to json](/1stSem_1stYear/lab05/images/suscontojson.png)
 
