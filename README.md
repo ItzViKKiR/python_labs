@@ -9,4 +9,4 @@
 
 Лабораторная работа №4 [LAB04](/1stSem_1stYear/lab04)
 
-Лабораторная работа №5 [LAB04](/1stSem_1stYear/lab05)
+Лабораторная работа №5 [LAB05](/1stSem_1stYear/lab05)
