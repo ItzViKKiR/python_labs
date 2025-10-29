@@ -59,9 +59,9 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
         if reader.fieldnames is None:
             raise ValueError("CSV не содержит заголовок")
         data = [row for row in reader]
-        
     if not data:
         raise ValueError("Пустой CSV")
+    
     with json_file.open("w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
