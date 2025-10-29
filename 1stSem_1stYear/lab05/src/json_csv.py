@@ -31,6 +31,7 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
         raise ValueError("Ожидается список словарей")
     if not data:
         raise ValueError("Пустой JSON-файл")
+    
     header = list(data[0].keys())
     with csv_file.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=header)
@@ -58,6 +59,7 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
         if reader.fieldnames is None:
             raise ValueError("CSV не содержит заголовок")
         data = [row for row in reader]
+        
     if not data:
         raise ValueError("Пустой CSV")
     with json_file.open("w", encoding="utf-8") as f:
