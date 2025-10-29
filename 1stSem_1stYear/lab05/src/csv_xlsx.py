@@ -40,7 +40,9 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
         max_length = 0
         column = col[0].column_letter
         for cell in col:
-            value = str(cell.value) if cell.value is not None else ""
+            if cell.value is not None:
+                value = str(cell.value)
+            else: value=""
             if len(value) > max_length:
                 max_length = len(value)
         adjusted_width = max(max_length + 2, 8)
