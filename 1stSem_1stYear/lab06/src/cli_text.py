@@ -1,6 +1,6 @@
 import argparse
 from pathlib import Path
-from lib.text import normalize, tokenize, count_freq, top_n
+from lib.text import *
 
 
 def main():
@@ -22,7 +22,7 @@ def main():
     if args.command == "cat":
         file_path = Path(args.input)
         if not file_path.exists():
-            raise FileNotFoundError("Файл не найден")
+            parser.error(f"Файл '{args.input}' не найден")
         try:
             with file_path.open("r", encoding="utf-8") as f:
                 for i, line in enumerate(f, start=1):
@@ -32,12 +32,12 @@ def main():
                     else:
                         print(line)
         except Exception as e:
-            print(f"Ошибка при чтении файла")
+            parser.error(f"Ошибка при чтении файла: {e}")
 
     elif args.command == "stats":
         file_path = Path(args.input)
         if not file_path.exists():
-            raise FileNotFoundError("Файл не найден")
+            parser.error(f"Файл '{args.input}' не найден")
         try:
             with file_path.open("r", encoding="utf-8") as f:
                 text = f.read()
@@ -56,7 +56,7 @@ def main():
                 print(f"{word}: {count}")
 
         except Exception as e:
-            print(f"Ошибка при обработке файла")
+            parser.error(f"Ошибка при чтении файла: {e}")
 
     else:
         parser.print_help()

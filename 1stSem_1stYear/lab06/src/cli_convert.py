@@ -23,6 +23,10 @@ def main():
 
     args = parser.parse_args()
 
+    input_path = Path(args.input)
+    if not input_path.exists():
+        parser.error(f"Входной файл '{args.input}' не найден")
+
     if args.cmd == "json2csv":
         json_to_csv(args.input, args.output)
     elif args.cmd == "csv2json":
@@ -35,3 +39,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#python -m lab06.src.cli_convert json2csv --in data/samples/people.json --out data/out/peoplejson2csv.csv 
+#python -m lab06.src.cli_convert csv2json --in data/samples/cities.csv --out data/out/citiescsv2json.json
+#python -m lab06.src.cli_convert csv2xlsx --in data/samples/people.csv --out data/out/peoplecsv2xlsx.xlsx 
