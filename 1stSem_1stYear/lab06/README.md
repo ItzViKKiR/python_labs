@@ -70,7 +70,7 @@ if __name__ == "__main__":
 ![cat](/1stSem_1stYear/lab06/images/cat.png)
 ![stats](/1stSem_1stYear/lab06/images/stats.png)
 
-Меню помощи при пустых аргументах / --help
+Меню помощи если не введена команда / --help
 ![help](/1stSem_1stYear/lab06/images/help.png)
 
 
