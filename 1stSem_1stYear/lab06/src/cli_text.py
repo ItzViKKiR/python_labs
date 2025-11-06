@@ -18,11 +18,11 @@ def main():
     stats_parser.add_argument("--top", type=int, default=5, help="Количество топ-слов")
 
     args = parser.parse_args()
+    file_path = Path(args.input)
+    if not file_path.exists():
+        parser.error(f"Файл '{args.input}' не найден")
 
     if args.command == "cat":
-        file_path = Path(args.input)
-        if not file_path.exists():
-            parser.error(f"Файл '{args.input}' не найден")
         try:
             with file_path.open("r", encoding="utf-8") as f:
                 for i, line in enumerate(f, start=1):
@@ -35,9 +35,6 @@ def main():
             parser.error(f"Ошибка при чтении файла: {e}")
 
     elif args.command == "stats":
-        file_path = Path(args.input)
-        if not file_path.exists():
-            parser.error(f"Файл '{args.input}' не найден")
         try:
             with file_path.open("r", encoding="utf-8") as f:
                 text = f.read()
