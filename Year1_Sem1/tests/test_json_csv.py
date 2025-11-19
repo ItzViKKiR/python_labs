@@ -4,11 +4,12 @@ import pytest
 from pathlib import Path
 import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from lib.json_csv import json_to_csv, csv_to_json
 
 
-def test_json_to_csv_roundtrip(tmp_path: Path):
+def test_json_to_csv_roundtrip(tmp_path: Path):  # Успешная конвертация JSON to CSV
     src = tmp_path / "people.json"
     dst = tmp_path / "people.csv"
 
@@ -29,7 +30,7 @@ def test_json_to_csv_roundtrip(tmp_path: Path):
     assert rows[1]["age"] == "25"
 
 
-def test_csv_to_json_roundtrip(tmp_path: Path):
+def test_csv_to_json_roundtrip(tmp_path: Path):  # Успешная конвертация CSV to JSON
     src = tmp_path / "people.csv"
     dst = tmp_path / "people.json"
 
@@ -49,7 +50,9 @@ def test_csv_to_json_roundtrip(tmp_path: Path):
     assert data[1]["age"] == "25"
 
 
-def test_json_to_csv_invalid_json(tmp_path: Path):
+def test_json_to_csv_invalid_json(
+    tmp_path: Path,
+):  # Входной файл "сломан"/не является корректным файлом JSON
     src = tmp_path / "broken.json"
     dst = tmp_path / "output.csv"
     src.write_text("not a json", encoding="utf-8")
@@ -58,7 +61,9 @@ def test_json_to_csv_invalid_json(tmp_path: Path):
         json_to_csv(str(src), str(dst))
 
 
-def test_csv_to_json_invalid_csv(tmp_path: Path):
+def test_csv_to_json_invalid_csv(
+    tmp_path: Path,
+):  # Входной файл "сломан"/не является корректным файлом CSV
     src = tmp_path / "broken.csv"
     dst = tmp_path / "output.json"
     src.write_text(",,,\n,,", encoding="utf-8")
@@ -67,6 +72,14 @@ def test_csv_to_json_invalid_csv(tmp_path: Path):
         csv_to_json(str(src), str(dst))
 
 
-def test_missing_file():
+def test_missing_file():  # Входного файла не существует
     with pytest.raises(FileNotFoundError):
         json_to_csv("no_such_file.json", "output.csv")
+
+
+def test_invalid_suffix_to_json(tmp_path: Path):  # Входной файл не CSV
+    src = tmp_path / "input.txt"
+    dst = tmp_path / "output.json"
+    src.write_text("This is 100% json, trust me", encoding="utf-8")
+    with pytest.raises(ValueError):
+        csv_to_json(str(src), str(dst))

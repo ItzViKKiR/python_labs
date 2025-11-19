@@ -65,11 +65,11 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-![cat](/1stSem_1stYear/lab06/images/cat.png)
-![stats](/1stSem_1stYear/lab06/images/stats.png)
+![cat](/Year1_Sem1/lab06/images/cat.png)
+![stats](/Year1_Sem1/lab06/images/stats.png)
 
 Меню помощи если не введена команда / --help
-![help](/1stSem_1stYear/lab06/images/help.png)
+![help](/Year1_Sem1/lab06/images/help.png)
 
 
 ### Пример 2. CLI‑конвертер
@@ -116,10 +116,10 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-![csv](/1stSem_1stYear/lab06/images/csv.png)
-![json](/1stSem_1stYear/lab06/images/json.png)
-![xlsx](/1stSem_1stYear/lab06/images/xlsx.png)
+![csv](/Year1_Sem1/lab06/images/csv.png)
+![json](/Year1_Sem1/lab06/images/json.png)
+![xlsx](/Year1_Sem1/lab06/images/xlsx.png)
 
 Меню помощи после введения подкоманды и --help
-![subhelp](/1stSem_1stYear/lab06/images/subhelp.png)
+![subhelp](/Year1_Sem1/lab06/images/subhelp.png)
 

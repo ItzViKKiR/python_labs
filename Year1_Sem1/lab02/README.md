@@ -20,7 +20,7 @@ def flatten(mat: list[list | tuple]) -> list:
                 result.append(item)
     return result
 ```
-![arrays code](/1stSem_1stYear/lab02/images/arrays.png)
+![arrays code](/Year1_Sem1/lab02/images/arrays.png)
 
 ### Задание 2
 ``` python
@@ -52,7 +52,7 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
     newmat=transpose(mat)
     return [sum(row) for row in newmat]
 ```
-![matrix code](/1stSem_1stYear/lab02/images/matrix.png)
+![matrix code](/Year1_Sem1/lab02/images/matrix.png)
 
 ### Задание 3
 ```python
@@ -77,4 +77,4 @@ def format_record(rec: tuple[str, str, float]) -> str:
     else:
         raise ValueError('Введите правильное ФИ(О)')
 ```
-![tuples code](/1stSem_1stYear/lab02/images/tuples.png)
+![tuples code](/Year1_Sem1/lab02/images/tuples.png)

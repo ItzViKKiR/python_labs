@@ -71,14 +71,14 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
 ### Сценарии:
 Успешная конвертация
 
-![json to csv](/1stSem_1stYear/lab05/images/suscontocsv.png)
-![csv to json](/1stSem_1stYear/lab05/images/suscontojson.png)
+![json to csv](/Year1_Sem1/lab05/images/suscontocsv.png)
+![csv to json](/Year1_Sem1/lab05/images/suscontojson.png)
 
 Ошибка при отсутствия файла
-![filenotfound](/1stSem_1stYear/lab05/images/filenotfound.png)
+![filenotfound](/Year1_Sem1/lab05/images/filenotfound.png)
 
 Ошибка при неправильном входном/выходном файле
-![valueerror](/1stSem_1stYear/lab05/images/valueerror.png)
+![valueerror](/Year1_Sem1/lab05/images/valueerror.png)
 ### Задание B
 ``` python
 from pathlib import Path
@@ -133,4 +133,4 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
 ```
 Пример результата работы:
 
-![xlsx](/1stSem_1stYear/lab05/images/csvtoxlsx.png)
+![xlsx](/Year1_Sem1/lab05/images/csvtoxlsx.png)

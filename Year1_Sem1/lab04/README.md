@@ -62,7 +62,7 @@ def write_csv(rows: Iterable[Sequence], path: str | Path, header: tuple[str, ...
             writer.writerow(row)
 
 ```
-![Тест-кейсы задания А](/1stSem_1stYear/lab04/images/taskA.png)
+![Тест-кейсы задания А](/Year1_Sem1/lab04/images/taskA.png)
 
 ### Задание B
 ``` python
@@ -113,9 +113,9 @@ if __name__ == '__main__':
 ```
 ### Тест-кейсы:
 #### При 1 файле:
-![Тест-кейсы задания B](/1stSem_1stYear/lab04/images/test%201.png)
-![Тест-кейсы задания B](/1stSem_1stYear/lab04/images/report1.png)
+![Тест-кейсы задания B](/Year1_Sem1/lab04/images/test%201.png)
+![Тест-кейсы задания B](/Year1_Sem1/lab04/images/report1.png)
 #### При пустом файле:
-![При пустом файле](/1stSem_1stYear/lab04/images/test%202.png)
+![При пустом файле](/Year1_Sem1/lab04/images/test%202.png)
 #### С кодировкой cp1251:
-![Другая кодировка](/1stSem_1stYear/lab04/images/test3.png)
+![Другая кодировка](/Year1_Sem1/lab04/images/test3.png)
