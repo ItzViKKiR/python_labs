@@ -171,6 +171,8 @@ def test_invalid_suffix_to_json(tmp_path: Path):  # Входной файл не
 ```
 Запуск автотестов через pytest
 ![testresults](/Year1_Sem1/lab07/images/sucessfultests.png)
+Покрытие
+![coverage](/Year1_Sem1/lab07/images/coverage.png)
 Проверка форматирования black --check .
 ![black](/Year1_Sem1/lab07/images/black.png)
 

@@ -6,10 +6,12 @@ import sys
 import os
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from lib.json_csv import json_to_csv, csv_to_json
+from lib.json_csv import json_to_csv, csv_to_json  # type:ignore
 
 
-def test_json_to_csv_roundtrip(tmp_path: Path) -> None:  # Успешная конвертация JSON to CSV
+def test_json_to_csv_roundtrip(
+    tmp_path: Path,
+) -> None:  # Успешная конвертация JSON to CSV
     src = tmp_path / "people.json"
     dst = tmp_path / "people.csv"
 

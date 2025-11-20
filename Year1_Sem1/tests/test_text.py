@@ -4,7 +4,7 @@ import os
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from lib.text import normalize, tokenize, count_freq, top_n
+from lib.text import normalize, tokenize, count_freq, top_n  # type: ignore
 
 
 @pytest.mark.parametrize(
@@ -25,7 +25,10 @@ def test_normalize(source, expected):
 @pytest.mark.parametrize(
     "source, expected",
     [
-        ("привет мир", ["привет", "мир"]),  # обычный текст
+        (
+            "привет мир, привет-привет!",
+            ["привет", "мир", "привет-привет"],
+        ),  # обычный текст
         ("один, два, три!", ["один", "два", "три"]),  # спецсимволы и знаки препинания
         ("", []),  # пустая строка
         ("   много   пробелов   ", ["много", "пробелов"]),  # повторяющиеся пробелы
