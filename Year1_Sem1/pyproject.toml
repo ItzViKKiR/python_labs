@@ -8,7 +8,10 @@ description = "Лабораторные по Програмированию 1г�
 dynamic = ["version"]
 
 dependencies = []
-
+[tool.setuptools.packages.find]
+where = [
+    "tests"
+]
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",
