@@ -127,7 +127,8 @@ def students_from_json(path):
 ```
 Пример запуска:
 ![testresults](/Year1_Sem1/lab08/images/tester.png)
-Результат сеарилизации
+
+Результат cериализация:
 ![json](/Year1_Sem1/lab08/images/json.png)
 
 
