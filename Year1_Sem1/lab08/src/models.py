@@ -32,8 +32,6 @@ class Student:
         birthday = datetime.strptime(self.birthdate, "%Y-%m-%d").date()
         today = date.today()
         years = today.year - birthday.year
-        if (today.month, today.day) < (birthday.month, birthday.day):
-            years -= 1
         return years
 
     def to_dict(self) -> dict:
