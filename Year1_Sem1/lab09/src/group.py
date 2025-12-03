@@ -63,32 +63,17 @@ class Group:
     def update(self, fio: str, **fields):
         students = self._read_all()
 
-        for s in students:
-            if s.fio == fio:
-
-                if "fio" in fields:
-                    s.fio = fields["fio"]
-
-                if "birthdate" in fields:
-                    s.birthdate = fields["birthdate"]
-
-                if "group" in fields:
-                    s.group = fields["group"]
-
-                if "gpa" in fields:
-                    s.gpa = fields["gpa"]
-
-            break
+        for student in students:
+            if student.fio == fio:
+                for key, value in fields.items():
+                    setattr(student, key, value)
+                break
 
         with self.path.open("w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
             writer.writerow(self.HEADER)
             for st in students:
                 writer.writerow([st.fio, st.birthdate, st.group, st.gpa])
-                break
 
-            with self.path.open("w", newline="", encoding="utf-8") as f:
-                writer = csv.writer(f)
-                writer.writerow(self.HEADER)
-                for s in students:
-                    writer.writerow([s.fio, s.birthdate, s.group, s.gpa])
+
+            
