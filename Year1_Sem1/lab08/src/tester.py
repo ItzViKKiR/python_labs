@@ -11,11 +11,11 @@ print("Проверка __str__():", s1)
 students = [s1, s2]
 
 # --- Сохранение в JSON ---
-output_path = "Year1_Sem1/data/out/students_into_json.json"
+output_path = "Year1_Sem1/data/lab08/students_into_json.json"
 students_to_json(students, output_path)
 
 # --- Загрузка из JSON ---
-input_path = "Year1_Sem1/data/samples/students.json"
+input_path = "Year1_Sem1/data/lab08/students.json"
 loaded_students = students_from_json(input_path)
 print("Студенты, загруженные из JSON:")
 for s in loaded_students:
