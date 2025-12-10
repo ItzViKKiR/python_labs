@@ -6,9 +6,9 @@ class Stack:
     """Стек (LIFO) на базе list.
 
     Операции:
-      - push(item)      O(1) amortized
+      - push(item)      O(1) 
       - pop()           O(1)
-      - peek()          O(1) (возврат None, если пуст)
+      - peek()          O(1) 
       - is_empty()      O(1)
       - __len__()       O(1)
     """
@@ -23,7 +23,7 @@ class Stack:
 
     def pop(self) -> Any:
         if not self._data:
-            raise IndexError("pop from empty Stack")
+            raise IndexError("Взятие элемента из пустого стэка")
         return self._data.pop()
 
     def peek(self) -> Optional[Any]:
@@ -45,7 +45,7 @@ class Queue:
     Операции:
       - enqueue(item)   O(1)
       - dequeue()       O(1)
-      - peek()          O(1) (возврат None, если пуст)
+      - peek()          O(1) 
       - is_empty()      O(1)
       - __len__()       O(1)
     """
@@ -60,7 +60,7 @@ class Queue:
 
     def dequeue(self) -> Any:
         if not self._data:
-            raise IndexError("dequeue from empty Queue")
+            raise IndexError("Взятие элемента из пустой очереди")
         return self._data.popleft()
 
     def peek(self) -> Optional[Any]:

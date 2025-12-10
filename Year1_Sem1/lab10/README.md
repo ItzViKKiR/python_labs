@@ -9,9 +9,9 @@ class Stack:
     """Стек (LIFO) на базе list.
 
     Операции:
-      - push(item)      O(1) amortized
+      - push(item)      O(1) 
       - pop()           O(1)
-      - peek()          O(1) (возврат None, если пуст)
+      - peek()          O(1) 
       - is_empty()      O(1)
       - __len__()       O(1)
     """
@@ -26,7 +26,7 @@ class Stack:
 
     def pop(self) -> Any:
         if not self._data:
-            raise IndexError("pop from empty Stack")
+            raise IndexError("Взятие элемента из пустого стэка")
         return self._data.pop()
 
     def peek(self) -> Optional[Any]:
@@ -48,7 +48,7 @@ class Queue:
     Операции:
       - enqueue(item)   O(1)
       - dequeue()       O(1)
-      - peek()          O(1) (возврат None, если пуст)
+      - peek()          O(1) 
       - is_empty()      O(1)
       - __len__()       O(1)
     """
@@ -63,7 +63,7 @@ class Queue:
 
     def dequeue(self) -> Any:
         if not self._data:
-            raise IndexError("dequeue from empty Queue")
+            raise IndexError("Взятие элемента из пустой очереди")
         return self._data.popleft()
 
     def peek(self) -> Optional[Any]:
@@ -128,8 +128,8 @@ class SinglyLinkedList:
       - append(value)       O(1)
       - prepend(value)      O(1)
       - insert(idx, value)  O(min(idx, n)) — проход от головы
-      - remove(value)       O(n) — удаление первого вхождения (ValueError если не найдено)
-      - remove_at(idx)      O(n) — удаление по индексу (IndexError при некорректном индексе)
+      - remove(value)       O(n) — 
+      - remove_at(idx)      O(n) — 
       - __iter__, __len__, __repr__, __str__
     """
 
@@ -258,3 +258,10 @@ print(f'Односвязанный список после добавления 
 print(sll) 
 ```
 ![tests2](/Year1_Sem1/lab10/images/List.png)
+
+# Ура семестр почти закончился, пасибки за курс (через неделю придет осознание, что скоро сессия)
+![rin](/Year1_Sem1/lab10/images/rin-itoshi-itoshi-rin.gif)
+## Я каждый четверг
+![frieren](/Year1_Sem1/lab10/images/frieren-frieren-sleepy.gif)
+## Когда мой код скопировали и жалуются, что он у них не работает
+![sae](/Year1_Sem1/lab10/images/sae-itoshi-lukewarm.gif)

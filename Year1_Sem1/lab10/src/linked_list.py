@@ -21,9 +21,9 @@ class SinglyLinkedList:
     Методы:
       - append(value)       O(1)
       - prepend(value)      O(1)
-      - insert(idx, value)  O(min(idx, n)) — проход от головы
-      - remove(value)       O(n) — удаление первого вхождения (ValueError если не найдено)
-      - remove_at(idx)      O(n) — удаление по индексу (IndexError при некорректном индексе)
+      - insert(idx, value)  O(min(idx, n)) 
+      - remove(value)       O(n) 
+      - remove_at(idx)      O(n) 
       - __iter__, __len__, __repr__, __str__
     """
 
