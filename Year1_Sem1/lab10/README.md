@@ -260,8 +260,11 @@ print(sll)
 ![tests2](/Year1_Sem1/lab10/images/List.png)
 
 # Ура семестр почти закончился, пасибки за курс (через неделю придет осознание, что скоро сессия)
-![rin](/Year1_Sem1/lab10/images/rin-itoshi-itoshi-rin.gif)
+<p align="center">
+  <img src="https://media1.tenor.com/m/nCNbjbz7210AAAAC/blue-lock-itoshi-rin.gif">
+</p>
+
 ## Я каждый четверг
-![frieren](/Year1_Sem1/lab10/images/frieren-frieren-sleepy.gif)
-## Когда мой код скопировали и жалуются, что он у них не работает
-![sae](/Year1_Sem1/lab10/images/sae-itoshi-lukewarm.gif)
+<p align="center">
+  <img src="https://media1.tenor.com/m/eTd3AKjO1KkAAAAd/frieren-frieren-sleepy.gif">
+</p>
