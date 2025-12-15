@@ -266,5 +266,5 @@ print(sll)
 
 ## Я каждый четверг
 <p align="center">
-  <img src="https://media1.tenor.com/m/eTd3AKjO1KkAAAAd/frieren-frieren-sleepy.gif">
+  <img width="400" height="400" src="https://media1.tenor.com/m/eTd3AKjO1KkAAAAd/frieren-frieren-sleepy.gif">
 </p>
