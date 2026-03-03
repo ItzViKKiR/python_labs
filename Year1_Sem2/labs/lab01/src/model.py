@@ -22,17 +22,28 @@ class Owner:
         self._is_active = True
     
     @property
-    def full_name(self): return self._full_name
+    def full_name(self):
+        return self._full_name
+    
     @property
-    def phone(self): return self._phone
+    def phone(self):
+        return self._phone
+    
     @property
-    def email(self): return self._email
+    def email(self):
+        return self._email
+    
     @property
-    def owner_id(self): return self._owner_id
+    def owner_id(self):
+        return self._owner_id
+    
     @property
-    def properties(self): return self._properties.copy()
+    def properties(self):
+        return self._properties.copy()
+    
     @property
-    def is_active(self): return self._is_active
+    def is_active(self):
+        return self._is_active
     
     @phone.setter
     def phone(self, new_phone: str):
@@ -60,8 +71,11 @@ class Owner:
         status = "Активен" if self._is_active else "Неактивен"
         return f"Владелец: {self._full_name} | Тел: {self._phone} | Объектов: {len(self._properties)} | {status}"
     
-    def __repr__(self): return f"Owner(full_name={self._full_name!r})"
-    def __eq__(self, other): return isinstance(other, Owner) and self._owner_id == other._owner_id
+    def __repr__(self):
+        return f"Owner(full_name={self._full_name!r})"
+    
+    def __eq__(self, other):
+        return isinstance(other, Owner) and self._owner_id == other._owner_id
 
 
 class Apartment:
@@ -92,23 +106,40 @@ class Apartment:
         self._mortgage_debt = 0.0
     
     @property
-    def address(self): return self._address
+    def address(self):
+        return self._address
+    
     @property
-    def area(self): return self._area
+    def area(self):
+        return self._area
+    
     @property
-    def price(self): return self._price
+    def price(self):
+        return self._price
+    
     @property
-    def owner(self): return self._owner
+    def owner(self):
+        return self._owner
+    
     @property
-    def floor(self): return self._floor
+    def floor(self):
+        return self._floor
+    
     @property
-    def status(self): return self._status
+    def status(self):
+        return self._status
+    
     @property
-    def utilities_debt(self): return self._utilities_debt
+    def utilities_debt(self):
+        return self._utilities_debt
+    
     @property
-    def mortgage_rate(self): return self._mortgage_rate
+    def mortgage_rate(self):
+        return self._mortgage_rate
+    
     @property
-    def mortgage_debt(self): return self._mortgage_debt
+    def mortgage_debt(self):
+        return self._mortgage_debt
     
     @price.setter
     def price(self, new_price: float):
@@ -144,7 +175,7 @@ class Apartment:
             raise RuntimeError("Не указана ставка")
         self._status = PropertyStatus.MORTGAGE
         self._mortgage_debt = self._price
-        print(f"Ипотека оформлена")
+        print("Ипотека оформлена")
     
     def pay_mortgage(self, amount: float):
         if self._status != PropertyStatus.MORTGAGE:
@@ -153,7 +184,7 @@ class Apartment:
         if payment >= self._mortgage_debt:
             self._mortgage_debt = 0
             self._status = PropertyStatus.AVAILABLE
-            print(f"Ипотека погашена")
+            print("Ипотека погашена")
         else:
             self._mortgage_debt -= payment
             print(f"Остаток: {self._mortgage_debt:.2f}")
@@ -166,7 +197,7 @@ class Apartment:
         self.owner = new_owner
         self._price = price
         self._status = PropertyStatus.SOLD
-        print(f"Квартира продана")
+        print("Квартира продана")
     
     def __str__(self):
         debt = f", Долг: {self._utilities_debt:.2f}" if self._utilities_debt > 0 else ""
@@ -175,8 +206,11 @@ class Apartment:
                 f"Цена: {self._price:,.2f} {self.currency} | Этаж: {self._floor} | "
                 f"{self._status.value}{mortgage}{debt}")
     
-    def __repr__(self): return f"Apartment(address={self._address!r})"
-    def __eq__(self, other): return isinstance(other, Apartment) and self._apartment_id == other._apartment_id
+    def __repr__(self):
+        return f"Apartment(address={self._address!r})"
+    
+    def __eq__(self, other):
+        return isinstance(other, Apartment) and self._apartment_id == other._apartment_id
 
 
 class House:
@@ -204,21 +238,36 @@ class House:
         self._mortgage_debt = 0.0
     
     @property
-    def address(self): return self._address
+    def address(self):
+        return self._address
+    
     @property
-    def area(self): return self._area
+    def area(self):
+        return self._area
+    
     @property
-    def price(self): return self._price
+    def price(self):
+        return self._price
+    
     @property
-    def owner(self): return self._owner
+    def owner(self):
+        return self._owner
+    
     @property
-    def land_area(self): return self._land_area
+    def land_area(self):
+        return self._land_area
+    
     @property
-    def status(self): return self._status
+    def status(self):
+        return self._status
+    
     @property
-    def mortgage_rate(self): return self._mortgage_rate
+    def mortgage_rate(self):
+        return self._mortgage_rate
+    
     @property
-    def mortgage_debt(self): return self._mortgage_debt
+    def mortgage_debt(self):
+        return self._mortgage_debt
     
     @price.setter
     def price(self, new_price: float):
@@ -243,7 +292,7 @@ class House:
             raise RuntimeError("Не указана ставка")
         self._status = PropertyStatus.MORTGAGE
         self._mortgage_debt = self._price
-        print(f"Ипотека оформлена")
+        print("Ипотека оформлена")
     
     def pay_mortgage(self, amount: float):
         if self._status != PropertyStatus.MORTGAGE:
@@ -252,7 +301,7 @@ class House:
         if payment >= self._mortgage_debt:
             self._mortgage_debt = 0
             self._status = PropertyStatus.AVAILABLE
-            print(f"Ипотека погашена")
+            print("Ипотека погашена")
         else:
             self._mortgage_debt -= payment
             print(f"Остаток: {self._mortgage_debt:.2f}")
@@ -265,7 +314,7 @@ class House:
         self.owner = new_owner
         self._price = price
         self._status = PropertyStatus.SOLD
-        print(f"Дом продан")
+        print("Дом продан")
     
     def __str__(self):
         mortgage = f", Ипотека: {self._mortgage_debt:.2f}" if self._mortgage_debt > 0 else ""
@@ -273,8 +322,11 @@ class House:
                 f"Участок: {self._land_area:.1f}м² | Цена: {self._price:,.2f} {self.currency} | "
                 f"{self._status.value}{mortgage}")
     
-    def __repr__(self): return f"House(address={self._address!r})"
-    def __eq__(self, other): return isinstance(other, House) and self._house_id == other._house_id
+    def __repr__(self):
+        return f"House(address={self._address!r})"
+    
+    def __eq__(self, other):
+        return isinstance(other, House) and self._house_id == other._house_id
 
 
 class RentalContract:
@@ -304,13 +356,20 @@ class RentalContract:
         apartment._status = PropertyStatus.RENTED
     
     @property
-    def apartment(self): return self._apartment
+    def apartment(self):
+        return self._apartment
+    
     @property
-    def tenant_name(self): return self._tenant_name
+    def tenant_name(self):
+        return self._tenant_name
+    
     @property
-    def monthly_rent(self): return self._monthly_rent
+    def monthly_rent(self):
+        return self._monthly_rent
+    
     @property
-    def is_active(self): return self._is_active
+    def is_active(self):
+        return self._is_active
     
     @monthly_rent.setter
     def monthly_rent(self, new_rent: float):
@@ -340,62 +399,59 @@ class RentalContract:
         return (f"Договор {self._contract_id} | {self._tenant_name} | "
                 f"Плата: {self._monthly_rent} {Apartment.currency}/мес | {status}")
     
-    def __repr__(self): return f"RentalContract(tenant_name={self._tenant_name!r})"
-    def __eq__(self, other): return isinstance(other, RentalContract) and self._contract_id == other._contract_id
+    def __repr__(self):
+        return f"RentalContract(tenant_name={self._tenant_name!r})"
+    
+    def __eq__(self, other):
+        return isinstance(other, RentalContract) and self._contract_id == other._contract_id
 
 
 class AgencyListing:
     commission_rate = 0.03
     
-    def __init__(self, property_obj, agent_name: str):
-        if not isinstance(property_obj, (Apartment, House)):
-            raise TypeError("property_obj должен быть Apartment или House")
+    def __init__(self, property_obj, agent_name):
         self._property = property_obj
-        self._agent_name = validators.validate_string(agent_name, "Имя агента", min_len=2)
+        self._agent_name = agent_name
         self._listing_id = str(uuid.uuid4())[:8]
         self._created_date = datetime.now()
         self._views = 0
         self._is_featured = False
     
-    @property
-    def property(self): return self._property
-    @property
-    def agent_name(self): return self._agent_name
-    @property
-    def listing_id(self): return self._listing_id
-    @property
-    def views(self): return self._views
-    @property
-    def is_featured(self): return self._is_featured
+    def get_property(self):
+        return self._property
     
-    @is_featured.setter
-    def is_featured(self, value: bool):
-        if not isinstance(value, bool):
-            raise TypeError("Значение должно быть bool")
-        if value and self._property.status == PropertyStatus.SOLD:
-            raise RuntimeError("Нельзя продвигать проданную недвижимость")
+    def get_agent_name(self):
+        return self._agent_name
+    
+    def get_listing_id(self):
+        return self._listing_id
+    
+    def get_views(self):
+        return self._views
+    
+    def is_featured(self):
+        return self._is_featured
+    
+    def set_featured(self, value):
         self._is_featured = value
     
-    def add_view(self): 
+    def add_view(self):
         self._views += 1
     
-    def feature(self): 
-        self.is_featured = True
+    def feature(self):
+        self._is_featured = True
     
-    def calculate_commission(self, sale_price: float) -> float:
-        price = validators.validate_positive_float(sale_price, "Цена")
-        commission = price * self.commission_rate
-        return commission * 1.2 if self._is_featured else commission
+    def calculate_commission(self, sale_price):
+        return sale_price * self.commission_rate * (1.2 if self._is_featured else 1)
     
-    def get_listing_age_days(self) -> int: 
+    def get_listing_age_days(self):
         return (datetime.now() - self._created_date).days
     
     def __str__(self):
-        return (f"Листинг {self._listing_id} {'★' if self._is_featured else '☆'} | "
-                f"Агент: {self._agent_name} | Просмотров: {self._views} | {self._property}")
+        return f"Листинг {self._listing_id} | Агент: {self._agent_name} | Просмотров: {self._views}"
     
-    def __repr__(self): 
-        return f"AgencyListing(agent_name={self._agent_name!r})"
+    def __repr__(self):
+        return f"AgencyListing(agent_name={self._agent_name})"
     
-    def __eq__(self, other): 
+    def __eq__(self, other):
         return isinstance(other, AgencyListing) and self._listing_id == other._listing_id
