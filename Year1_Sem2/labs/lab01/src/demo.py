@@ -1,105 +1,85 @@
-from model import Owner, Apartment, House, RentalContract, AgencyListing
-from datetime import datetime
+from model import Property
 
-def print_separator(title):
-    print(f"\n{'='*20} {title} {'='*20}")
 
-print_separator("1. Создание владельцев")
-owner1 = Owner("Иванов Иван Иванович", "+7 (999) 123-45-67", "ivanov@mail.com")
-owner2 = Owner("Петрова Анна Сергеевна", "+7 (999) 765-43-21", "petrova@mail.com")
-print(owner1)
-print(owner2)
+def scenario_rent_flow():
 
-print_separator("2. Создание квартиры и дома")
-apt = Apartment("ул. Ленина, д.1, кв.5", 45.5, 7500000, owner1, 3, mortgage_rate=9.5)
-house = House("ул. Лесная, д.10", 120.0, 15000000, owner2, 600, mortgage_rate=8.0)
-print(apt)
-print(house)
+    p = Property("Шубкин Александр Андреевич", 1200, 12, 150, 20000, True)
 
-print_separator("3. Демонстрация ипотеки")
-apt.take_mortgage()
-print(apt)
-apt.pay_mortgage(1000000)
-apt.pay_mortgage(2000000)
+    print("Создан объект недвижимости:")
+    print(p)
+    print("repr объекта:", repr(p))
+    print("Доступна ли аренда:", p.is_available())
 
-try:
-    apt.sell(owner2)
-except RuntimeError as e:
-    print(f"Ошибка: {e}")
+    print("\nЗаключаем договор аренды...")
+    p.rental_contract()
 
-apt.pay_mortgage(4500000)
-print(apt)
+    print("Статус после аренды:", p)
+    print("Общая стоимость аренды:", p.total_rent_price())
 
-print_separator("4. Работа с долгами ЖКХ")
-apt.add_utilities_debt(5000)
-print(f"После начисления: {apt}")
-apt.pay_utilities(3000)
-print(f"После оплаты: {apt}")
+    print("\nЗакрываем договор...")
+    p.close_contract()
 
-print_separator("5. Договор аренды")
-contract = RentalContract(
-    apartment=apt,
-    tenant_name="Сидоров Петр",
-    tenant_phone="+7 (999) 111-22-33",
-    monthly_rent=35000,
-    start_date=datetime.now(),
-    duration_months=6
-)
-print(contract)
-contract.pay_rent(35000)
-contract.terminate()
-print(contract)
+    print("Статус после закрытия договора:", p)
+    print("Доступна ли аренда:", p.is_available())
 
-print_separator("6. Листинг агентства")
-listing = AgencyListing(house, "Смирнова Е.В.")
-print(listing)
-listing.add_view()
-listing.add_view()
-listing.add_view()
-listing.feature()
-print(f"После продвижения: {listing}")
-print(f"Комиссия: {listing.calculate_commission(16000000):,.2f}")
 
-print_separator("7. Смена владельца")
-print(f"Владелец: {apt.owner.full_name}")
-apt.owner = owner2
-print(f"Новый владелец: {apt.owner.full_name}")
+def scenario_state_and_setters():
 
-print_separator("8. Продажа")
-print(f"До продажи: {house}")
-house.sell(owner1, 16500000)
-print(f"После продажи: {house}")
+    p = Property("Немирович Марк Анатольевич", 300000, 12, 200, 50000, False)
 
-print_separator("9. Демонстрация состояния владельца")
-print(f"owner1 активен: {owner1.is_active}")
-try:
-    owner1.deactivate()
-except RuntimeError as e:
-    print(f"Ошибка деактивации: {e}")
-owner1.remove_property(apt)
-owner1.remove_property(house)
-owner1.deactivate()
-print(f"После деактивации: {owner1}")
+    print("Информация о продаже:")
+    print("Цена продажи:", p.sell_price())
+    print("Есть ли ипотека:", p.mortgage_active)
+    print("Есть ли долг по ЖКХ:", p.has_debt)
 
-print_separator("10. Валидация")
-try:
-    apt_invalid = Apartment("", -10, -5000, owner1, 200)
-except (TypeError, ValueError) as e:
-    print(f"Ошибка: {e}")
+    print("\nИзменяем параметры через setter")
 
-print_separator("11. Атрибуты класса")
-print(f"Apartment.currency = {Apartment.currency}")
-print(f"apt.currency = {apt.currency}")
-print(f"Owner.tax_rate = {Owner.tax_rate}")
+    p.price = 320000
+    p.rent_term = 24
 
-print_separator("12. Сравнение")
-print(f"apt == house? {apt == house}")
-print(f"owner1 == owner2? {owner1 == owner2}")
+    print("Новая цена:", p.price)
+    print("Новый срок аренды:", p.rent_term)
 
-print_separator("13. Итоговое состояние")
-print(owner1)
-print(owner2)
-print(apt)
-print(house)
-print(contract)
-print(listing)
+    print("\nПогашаем часть долгов")
+
+    p.pay_utilities(100)
+    p.pay_mortgage(10000)
+
+    print("Остаток долга ЖКХ:", p.utilities)
+    print("Остаток ипотеки:", p.mortgage)
+
+
+def scenario_validation_and_comparison():
+
+    print("Проверка валидации:")
+
+    try:
+        Property("", 1000, 12, 100, 20000)
+    except Exception as e:
+        print("Ошибка создания объекта:", e)
+
+    p1 = Property("Шубкин Александр Андреевич", 1000, 12, 100, 20000)
+    p2 = Property("Шубкин Александр Андреевич", 1000, 12, 100, 20000)
+
+    print("\nСравнение объектов:")
+    print("Объекты равны:", p1 == p2)
+
+    print("\nДополнительная информация:")
+    print("ЖКХ:", p1.check_utilities())
+    print("Ипотека:", p1.check_mortgage())
+    print("Владелец:", p1.owner_info())
+
+    print("\nАтрибут класса:")
+    print("Через класс:", Property.properties_count)
+    print("Через объект:", p1.properties_count)
+
+
+if __name__ == "__main__":
+
+    scenario_rent_flow()
+    print("\n---------------------\n")
+
+    scenario_state_and_setters()
+    print("\n---------------------\n")
+
+    scenario_validation_and_comparison()
