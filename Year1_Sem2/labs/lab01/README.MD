@@ -95,3 +95,5 @@
 <p align="center">
   <img src="https://media1.tenor.com/m/WfqkollmqXYAAAAC/danganronpa-kyoko-kirigiri.gif">
 </p>
+
+![gif](/Year1_Sem2/labs/lab01/images/danganronpa-press.gif)
