@@ -91,6 +91,7 @@
 ![demo3](/Year1_Sem2/labs/lab01/images/demo3.png)
 
 # С такими ценами на квартиру то...
+
 <p align="center">
   <img src="https://media1.tenor.com/m/WfqkollmqXYAAAAC/danganronpa-kyoko-kirigiri.gif">
 </p>
