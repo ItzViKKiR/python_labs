@@ -96,4 +96,3 @@
   <img src="images/danganronpa-press.gif" width="996" height="462">
 </p>
 
-![gif](/Year1_Sem2/labs/lab01/images/danganronpa-press.gif)
