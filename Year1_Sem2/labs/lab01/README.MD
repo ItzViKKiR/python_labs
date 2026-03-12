@@ -93,6 +93,7 @@
 # С такими ценами на квартиру то...
 
 <p align="center">
-<img width="996" height="562" src="https://media1.tenor.com/m/WfqkollmqXYAAAAd/danganronpa-kyoko-kirigiri.gif">
+<img width="996" height="462" src="https://media1.tenor.com/m/J64xaWeZlw4AAAAC/danganronpa-kyoko-execution.gif">
 </p>
+
 ![gif](/Year1_Sem2/labs/lab01/images/danganronpa-press.gif)
