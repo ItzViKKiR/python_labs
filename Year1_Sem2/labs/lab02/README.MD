@@ -30,12 +30,12 @@ District — контейнер объектов Property.
 ## Сценарии
 1. Базовая работа с коллекцией
 
-![demo1](/Year1_Sem2/labs/lab01/images/models.png)
+![demo1](/Year1_Sem2/labs/lab02/images/models.png)
 
 2. Поиск и итерация
 
-![demo2](/Year1_Sem2/labs/lab01/images/search.png)
+![demo2](/Year1_Sem2/labs/lab02/images/search.png)
 
 3. Сортировка, фильтрация, индексация
 
-![demo3](/Year1_Sem2/labs/lab01/images/sort.png)
+![demo3](/Year1_Sem2/labs/lab02/images/sort.png)
