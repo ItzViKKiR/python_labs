@@ -39,3 +39,9 @@ District — контейнер объектов Property.
 3. Сортировка, фильтрация, индексация
 
 ![demo3](/Year1_Sem2/labs/lab02/images/sort.png)
+
+# Простите я не нашла подходящий мем 
+
+<p align="center">
+  <img width="400" height="400" src="https://media1.tenor.com/m/1ZeGFD9ajowAAAAd/qiqi-genshin-impact.gif">
+</p>
