@@ -68,7 +68,7 @@ District — контейнер объектов Property.
 # Когда забыл про наследование в ООП
 
 <p align="center">
-  <img src="images/spideryeet.gif" width="600" height="425">
+  <img src="images/spideryeet.gif" width="800" height="625">
 </p>
 
 
