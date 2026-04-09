@@ -114,7 +114,7 @@ class Property:
 
     def __str__(self):
         status = "yes" if self._rented else "no"
-        return f"Owner: {self._owner} | Price: {self._price:.2f} | Rented: {status}"
+        return f"Владелец: {self._owner} | Цена продажи: {self._price:.2f} | Арендован: {status} | Долг ЖКХ: {self.utilities} | Остаток ипотеки: {self.mortgage}"
 
     def __repr__(self):
         return f"Property(owner='{self._owner}', price={self._price}, rent_term={self._rent_term})"

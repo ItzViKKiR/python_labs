@@ -25,7 +25,7 @@ def scenario_rent_lifecycle():
     flat.pay_utilities(300)
 
     print("\nСдаём квартиру:")
-    flat.rent_to("Иванов")
+    flat.rent_to("Есть ли еще преподы по проге?")
 
     print(flat)
 
@@ -36,7 +36,7 @@ def scenario_rent_lifecycle():
     print("\nТекущее состояние:")
     print(flat)
 
-    print("\nДоживаем до конца договора:")
+    print("\Пытаемся дожить до конца договора:")
     while not flat.is_available():
         flat.next_month()
 
@@ -54,7 +54,7 @@ def scenario_mortgage_lifecycle():
         0,
         120000,   # долг
         5,        # %
-        6         # месяцев
+        6         # лет
     )
 
     print("\nСоздан объект:")
@@ -84,9 +84,9 @@ def scenario_polymorphism_smart():
     print("\n=== СЦЕНАРИЙ 3: Полиморфизм ===")
 
     objects = [
-        RentalProperty("A", 100000, 3, 0, 0),
-        RentalProperty("B", 150000, 3, 200, 0),
-        MortgageProperty("C", 300000, 12, 0, 80000, 4, 5),
+        RentalProperty("Шубкин Александр Андреевич", 100000, 3, 0, 0),
+        RentalProperty("Немирович Марк Анатольевич", 150000, 3, 200, 0),
+        MortgageProperty("У меня закончились идеи", 300000, 12, 0, 80000, 4, 5),
     ]
 
     for obj in objects:
