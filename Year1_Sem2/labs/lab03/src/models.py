@@ -104,7 +104,7 @@ class MortgageProperty(Property):
             print("Срок ипотеки закончился")
 
     def is_available(self):
-        return False
+        return self.is_paid_off()
     
     def is_paid_off(self):
         return self._mortgage == 0
