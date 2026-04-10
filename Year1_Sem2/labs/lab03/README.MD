@@ -71,5 +71,9 @@ District — контейнер объектов Property.
   <img src="images/spideryeet.gif" width="800" height="625">
 </p>
 
+# Повторвите позу?
 
+<p align="center">
+  <img width="480" height="480" src="https://media1.tenor.com/m/eLqW4fpdgbwAAAAd/higuruma-hiromi.gif">
+</p>
 
