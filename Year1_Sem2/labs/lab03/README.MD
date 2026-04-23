@@ -71,5 +71,3 @@ District — контейнер объектов Property.
   <img src="images/spideryeet.gif" width="800" height="625">
 </p>
 
-
-
