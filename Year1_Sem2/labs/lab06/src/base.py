@@ -1,12 +1,24 @@
-from validate import validate_owner, validate_price, validate_term, validate_money, validate_bool
-from interfaces import Printable
+from validate import (
+    validate_owner,
+    validate_price,
+    validate_term,
+    validate_money,
+    validate_bool
+)
 
 
-class Property(Printable):
+class Property:
     properties_count: int = 0
 
-    def __init__(self, owner: str, price: float, rent_term: int,
-                 utilities: float, mortgage: float, for_rent: bool = True) -> None:
+    def __init__(
+        self,
+        owner: str,
+        price: float,
+        rent_term: int,
+        utilities: float,
+        mortgage: float,
+        for_rent: bool = True
+    ) -> None:
         self._owner: str = validate_owner(owner)
         self._price: float = validate_price(price)
         self._rent_term: int = validate_term(rent_term)
@@ -14,10 +26,8 @@ class Property(Printable):
         self._mortgage: float = validate_money(mortgage)
         self._for_rent: bool = validate_bool(for_rent)
         self._rented: bool = False
-        Property.properties_count += 1
 
-    def to_string(self) -> str:
-        return self.__str__()
+        Property.properties_count += 1
 
     @property
     def owner(self) -> str:
@@ -73,26 +83,36 @@ class Property(Printable):
 
     def pay_utilities(self, amount: float) -> None:
         amount = validate_money(amount)
+
         if amount > self._utilities:
             raise ValueError("payment exceeds debt")
+
         self._utilities -= amount
 
     def pay_mortgage(self, amount: float) -> None:
         amount = validate_money(amount)
+
         if amount > self._mortgage:
             raise ValueError("payment exceeds mortgage")
+
         self._mortgage -= amount
 
     def is_available(self) -> bool:
         return not self._rented
 
-    def __str__(self) -> str:
-        status = "yes" if self._rented else "no"
-        return (f"Владелец: {self._owner} | Цена: {self._price} | "
-                f"Арендован: {status} | ЖКХ: {self._utilities} | Ипотека: {self._mortgage}")
-
     def display(self) -> str:
-        return self.to_string()
+        return str(self)
 
     def score(self) -> float:
         return float(self.price)
+
+    def __str__(self) -> str:
+        status = "yes" if self._rented else "no"
+
+        return (
+            f"Владелец: {self._owner} | "
+            f"Цена: {self._price} | "
+            f"Арендован: {status} | "
+            f"ЖКХ: {self._utilities} | "
+            f"Ипотека: {self._mortgage}"
+        )

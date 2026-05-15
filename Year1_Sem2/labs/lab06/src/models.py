@@ -1,11 +1,25 @@
 from base import Property
-from interfaces import Payable
 
 
-class RentalProperty(Property, Payable):
-    def __init__(self, owner: str, price: float, rent_term: int,
-                 utilities: float, mortgage: float, tenant: str = None) -> None:
-        super().__init__(owner, price, rent_term, utilities, mortgage, True)
+class RentalProperty(Property):
+    def __init__(
+        self,
+        owner: str,
+        price: float,
+        rent_term: int,
+        utilities: float,
+        mortgage: float,
+        tenant: str | None = None
+    ) -> None:
+        super().__init__(
+            owner,
+            price,
+            rent_term,
+            utilities,
+            mortgage,
+            True
+        )
+
         self._tenant: str | None = tenant
         self._remaining_months: int = rent_term if tenant else 0
 
@@ -15,8 +29,10 @@ class RentalProperty(Property, Payable):
     def rent_to(self, tenant: str) -> None:
         if not self.is_available():
             raise ValueError("Недоступно")
+
         if self.has_debt:
             raise ValueError("Есть долг")
+
         self._tenant = tenant
         self._rented = True
         self._remaining_months = self._rent_term
@@ -25,13 +41,32 @@ class RentalProperty(Property, Payable):
         return not self._rented and not self.has_debt
 
     def __str__(self) -> str:
-        return f"[АРЕНДА] {super().__str__()} | арендатор={self._tenant}"
+        return (
+            f"[АРЕНДА] {super().__str__()} | "
+            f"арендатор={self._tenant}"
+        )
 
 
-class MortgageProperty(Property, Payable):
-    def __init__(self, owner: str, price: float, rent_term: int,
-                 utilities: float, mortgage: float, rate: float, years: int) -> None:
-        super().__init__(owner, price, rent_term, utilities, mortgage, False)
+class MortgageProperty(Property):
+    def __init__(
+        self,
+        owner: str,
+        price: float,
+        rent_term: int,
+        utilities: float,
+        mortgage: float,
+        rate: float,
+        years: int
+    ) -> None:
+        super().__init__(
+            owner,
+            price,
+            rent_term,
+            utilities,
+            mortgage,
+            False
+        )
+
         self._rate: float = rate
         self._years: int = years
 
@@ -42,4 +77,7 @@ class MortgageProperty(Property, Payable):
         return self._mortgage == 0.0
 
     def __str__(self) -> str:
-        return f"[ИПОТЕКА] {super().__str__()} | ставка={self._rate}%"
+        return (
+            f"[ИПОТЕКА] {super().__str__()} | "
+            f"ставка={self._rate}%"
+        )
