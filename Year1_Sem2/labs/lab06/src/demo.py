@@ -63,11 +63,13 @@ def demo_protocol_scorable():
     collection: TypedCollection[S] = TypedCollection()
     collection.add(RentalProperty("Шубкин Александр Андреевич", 1000.0, 3, 0.0, 0.0))
     collection.add(MortgageProperty("Немирович Марк Анатольевич", 200000.0, 12, 50.0, 80000.0, 4.0, 5))
-    collection.add(RentalProperty("Козлов Артём Александрович", 900.0, 2, 0.0, 0.0))
+    collection.add('RentalProperty("Козлов Артём Александрович", 900.0, 2, 0.0, 0.0)')
     print("Вызов score() у каждого элемента:")
     for item in collection.get_all():
         print(f"{item.display()} -> score = {item.score()}")
     print()
+
+
 
 
 if __name__ == "__main__":

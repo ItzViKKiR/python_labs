@@ -1,0 +1,36 @@
+[
+    {
+        "type": "rental",
+        "owner": "Шубкин Александр Андреевич",
+        "price": 1000.0,
+        "rent_term": 3,
+        "utilities": 0.0,
+        "mortgage": 0.0
+    },
+    {
+        "type": "mortgage",
+        "owner": "Немирович Марк Анатольевич",
+        "price": 200000.0,
+        "rent_term": 12,
+        "utilities": 50.0,
+        "mortgage": 80000.0,
+        "rate": 4.0,
+        "years": 5
+    },
+    {
+        "type": "rental",
+        "owner": "Нгуен Минь Туан",
+        "price": 1500.0,
+        "rent_term": 6,
+        "utilities": 0.0,
+        "mortgage": 0.0
+    },
+    {
+        "type": "rental",
+        "owner": "Я не знаю других преподов по проге",
+        "price": 2500.0,
+        "rent_term": 4,
+        "utilities": 100.0,
+        "mortgage": 0.0
+    }
+]
