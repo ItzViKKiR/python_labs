@@ -68,3 +68,12 @@ CLI-интерфейс
 ### Сценарий 4: фильтрация + перехват исключения при некорректных данных
 ![p1](/Year1_Sem2/labs/lab07/images/6.png)
 ![p1](/Year1_Sem2/labs/lab07/images/7.png)
+
+# Звездаааа
+[![asciicast](https://asciinema.org/a/zIeIK01jWJX1XoS9.svg)](https://asciinema.org/a/zIeIK01jWJX1XoS9)
+
+
+# Пов: экзамен
+<p align="center">
+  <img width="498" height="281" src="https://media1.tenor.com/m/L4rjYt7wOQoAAAAC/april-fools-joke.gif">
+</p>

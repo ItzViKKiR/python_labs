@@ -35,10 +35,10 @@
     },
     {
         "type": "rental",
-        "owner": "I dunno",
+        "owner": "idk",
         "price": 4500.0,
         "rent_term": 5,
-        "utilities": 0.0,
+        "utilities": 1000.0,
         "mortgage": 0.0
     }
 ]

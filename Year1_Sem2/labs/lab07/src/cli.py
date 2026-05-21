@@ -1,5 +1,3 @@
-# cli.py
-
 from app import PropertyApp
 from storage import save, load
 from validate import validate_email
@@ -226,24 +224,24 @@ def run_cli():
                 if utilities is None:
                     continue
 
-                mortgage = input_float(
-                    "Ипотека"
-                )
-
-                if mortgage is None:
-                    continue
-
                 if property_type == 1:
-
+                    # Аренда - ипотека автоматически 0
                     app.add_rental(
                         owner,
                         price,
                         rent_term,
                         utilities,
-                        mortgage
+                        0.0
                     )
 
                 elif property_type == 2:
+                    # Ипотека - запрашиваем дополнительные поля
+                    mortgage = input_float(
+                        "Ипотека"
+                    )
+
+                    if mortgage is None:
+                        continue
 
                     rate = input_float(
                         "Ставка"
@@ -272,7 +270,7 @@ def run_cli():
                 print(
                     "Недвижимость добавлена"
                 )
-
+        
             elif choice == 2:
 
                 print_properties(
