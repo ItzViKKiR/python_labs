@@ -1,7 +1,10 @@
 import json
 from pathlib import Path
 
-from models import RentalProperty, MortgageProperty
+from models import (
+    RentalProperty,
+    MortgageProperty
+)
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -9,6 +12,9 @@ TEST_FOLDER = BASE_DIR / "test_files"
 
 
 def save(collection, filepath: str) -> None:
+    """
+    сохраняет данные в json
+    """
 
     TEST_FOLDER.mkdir(exist_ok=True)
 
@@ -19,6 +25,7 @@ def save(collection, filepath: str) -> None:
     for item in collection.get_all():
 
         if isinstance(item, RentalProperty):
+
             data.append({
                 "type": "rental",
                 "owner": item.owner,
@@ -29,6 +36,7 @@ def save(collection, filepath: str) -> None:
             })
 
         elif isinstance(item, MortgageProperty):
+
             data.append({
                 "type": "mortgage",
                 "owner": item.owner,
@@ -40,43 +48,66 @@ def save(collection, filepath: str) -> None:
                 "years": item._years
             })
 
-    with open(full_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+    with open(
+        full_path,
+        "w",
+        encoding="utf-8"
+    ) as f:
+
+        json.dump(
+            data,
+            f,
+            ensure_ascii=False,
+            indent=4
+        )
 
 
 def load(filename: str) -> list:
+    """
+    загружает данные из json
+    """
 
     path = TEST_FOLDER / filename
 
     if not path.exists():
         return []
 
-    with open(path, "r", encoding="utf-8") as file:
-        data = json.load(file)
+    with open(
+        path,
+        "r",
+        encoding="utf-8"
+    ) as file:
 
+        data = json.load(file)
 
     items = []
 
     for item in data:
 
         if item["type"] == "rental":
-            items.append(RentalProperty(
-                item["owner"],
-                item["price"],
-                item["rent_term"],
-                item["utilities"],
-                item["mortgage"]
-            ))
+
+            items.append(
+                RentalProperty(
+                    item["owner"],
+                    item["price"],
+                    item["rent_term"],
+                    item["utilities"],
+                    item["mortgage"]
+                )
+            )
 
         elif item["type"] == "mortgage":
-            items.append(MortgageProperty(
-                item["owner"],
-                item["price"],
-                item["rent_term"],
-                item["utilities"],
-                item["mortgage"],
-                item["rate"],
-                item["years"]
-            ))
+
+            items.append(
+                MortgageProperty(
+                    item["owner"],
+                    item["price"],
+                    item["rent_term"],
+                    item["utilities"],
+                    item["mortgage"],
+                    item["rate"],
+                    item["years"]
+                )
+            )
 
     return items

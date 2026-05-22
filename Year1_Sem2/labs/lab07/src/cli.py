@@ -7,12 +7,13 @@ from exceptions import (
     DuplicatePropertyError
 )
 
-
-
 DATA_FILE = "properties.json"
 
 
 def print_menu() -> None:
+    """
+    выводит главное меню
+    """
 
     print("\n========= СИСТЕМА НЕДВИЖИМОСТИ =========")
 
@@ -31,6 +32,12 @@ def print_menu() -> None:
 
 
 def print_properties(items) -> None:
+    """
+    выводит список недвижимости
+
+    args:
+        items: список объектов
+    """
 
     if not items:
         print("Пусто")
@@ -41,6 +48,13 @@ def print_properties(items) -> None:
 
 
 def cancel_to_menu() -> bool:
+    """
+    спрашивает пользователя
+    вернуться ли в меню
+
+    returns:
+        bool: true если да
+    """
 
     answer = input(
         "\nВернуться в главное меню? (y/n): "
@@ -50,6 +64,15 @@ def cancel_to_menu() -> bool:
 
 
 def input_string(message: str):
+    """
+    ввод строки
+
+    args:
+        message: текст ввода
+
+    returns:
+        str | none
+    """
 
     value = input(
         f"{message} "
@@ -70,6 +93,16 @@ def input_int(
     message: str,
     allowed: tuple | None = None
 ):
+    """
+    ввод целого числа
+
+    args:
+        message: текст ввода
+        allowed: допустимые значения
+
+    returns:
+        int | none
+    """
 
     while True:
 
@@ -110,6 +143,15 @@ def input_int(
 
 
 def input_float(message: str):
+    """
+    ввод числа
+
+    args:
+        message: текст ввода
+
+    returns:
+        float | none
+    """
 
     while True:
 
@@ -137,6 +179,9 @@ def input_float(message: str):
 
 
 def run_cli():
+    """
+    запускает cli интерфейс
+    """
 
     app = PropertyApp()
 
@@ -225,7 +270,7 @@ def run_cli():
                     continue
 
                 if property_type == 1:
-                    # Аренда - ипотека автоматически 0
+
                     app.add_rental(
                         owner,
                         price,
@@ -235,7 +280,7 @@ def run_cli():
                     )
 
                 elif property_type == 2:
-                    # Ипотека - запрашиваем дополнительные поля
+
                     mortgage = input_float(
                         "Ипотека"
                     )
@@ -270,7 +315,7 @@ def run_cli():
                 print(
                     "Недвижимость добавлена"
                 )
-        
+
             elif choice == 2:
 
                 print_properties(
